@@ -24,6 +24,10 @@ public class Question_6_Windows_10_Install {
     public static void main(String[] args) {
 
         String currentOS = stringInput("What is your current operating system?");
+        while (!currentOS.equalsIgnoreCase("Windows 7") && !currentOS.equalsIgnoreCase("Windows 8")) {
+            System.out.println("Please enter Windows 7 or Windows 8.");
+            currentOS = stringInput("What is your current operating system?");
+        }
         double processorSpeed = doubleInput("What is your current processor speed, in GHz?");
         double ram = doubleInput("How much RAM do you have, in GB?");
 
@@ -46,8 +50,9 @@ public class Question_6_Windows_10_Install {
         // Return false if the computer can't be upgraded.
 
         // TODO remove this line, and replace with your own code.
-        return false;
-
+        return (currentOS.equals("Windows 7") || currentOS.equals("Windows 8"))
+                    && processorSpeed >= 1
+                    && ram >= 2;
     }
     
 }
